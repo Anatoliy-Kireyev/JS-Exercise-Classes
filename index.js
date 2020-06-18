@@ -154,13 +154,13 @@ class Instructor extends Lambdasian{
     this.speciality = argument.speciality;
     this.favLanguage = argument.favLanguage;
     this.catchPhrase = argument.catchPhrase;
-  }
+  };
    demo(subject){
-    return `Hello my name is ${this.subject}`;
-  }
+    return `Hello my name is ${subject}`;
+  };
   grade(student, subject){
-    return '${this.student.name} receives a perfect score on ${this.subject}';
-  }
+    return `${student} receives a perfect score on ${subject}`;
+  };
 }
 
 const newStudent = new Instructor ({
@@ -172,9 +172,9 @@ const newStudent = new Instructor ({
   catchPhrase: "That window pane is NOT thicker than my glasses!!!"
 
 });
-
+console.log(newStudent.catchPhrase);
 console.log(newStudent.demo('Equality'));
-console.log(newStudent.grade('Equality', 'Anatoliy'));
+console.log(newStudent.grade( 'Anatoliy','Equality'));
 
 
 
@@ -193,9 +193,39 @@ console.log(newStudent.grade('Equality', 'Anatoliy'));
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(argument) {
+  super(argument);
+  this.previousBackground = argument.previousBackground;
+  this.className = argument.className;
+  this.favSubjects = argument.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${bestStudent.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${bestStudent.name} has began sprint challenge on ${subject}`;
+  }
 }
+
+const bestStudent = new Student ({
+  name: 'Anatoliy',
+  age: 34,
+  location: 'Venus',
+  previousBackground: 'UX design',
+  className: "Redux 101",
+  favSubjects: "anything related to Redux"
+
+
+  
+
+});
+console.log(bestStudent.listSubjects());
+console.log(bestStudent.PRAssignment("css"));
+console.log(bestStudent.sprintChallenge("advanced JS"));
 
 /*
   TASK 6
