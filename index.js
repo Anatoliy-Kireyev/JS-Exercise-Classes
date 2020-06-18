@@ -240,9 +240,37 @@ console.log(bestStudent.sprintChallenge("advanced JS"));
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+constructor(argument){
+  super(argument);
+  this.gradClassName = argument.gradClassName;
+  this.favInstructor = argument.favInstructor;
 }
+ standUp(slackCh) {
+ return `${simpleStudent.name} announces to ${slackCh}, @channel standy times!`
+ };
+ debugsCode(student, subject) {
+   return `${student} debugs ${simpleStudent.name}'s code on ${subject}`
+ } 
+ 
+}
+
+const simpleStudent = new ProjectManager ({
+  name: 'Boris Johanson',
+  age: 37,
+  location: 'Yuma, AZ',
+  specialty: "Bird Watching",
+  favLanguage: "Alabamanese",
+  catchPhrase: "Birdy!!!",
+  gradClassName: "Web 33",
+  favInstructor: "All Female Instructors",
+
+
+});
+
+console.log(simpleStudent.standUp("Web 33"));
+console.log(simpleStudent.debugsCode("Anatoliy", "Redux"));
+
 
 /*
   STRETCH PROBLEM (no tests!)
@@ -266,4 +294,4 @@ if (typeof exports !== 'undefined') {
   if (Student) { module.exports.Student = Student }
   if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
 }
-*/
+*/ 
