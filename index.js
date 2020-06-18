@@ -20,7 +20,7 @@ class Airplane {
     this.isFlying = false;
   }
 }
-
+ 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -40,10 +40,30 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
 
-}
+/*
 
+class Person{
+    constructor(name, age){
+     this.name = name;
+       this.age = age;
+       this.stomach = [];
+    }
+     eat(edible){
+      if(this.stomach.length < 10){
+        this.stomach.push(edible);
+      }
+      }
+      poop(){
+        this.stomach = [];
+      }
+      toString(){
+        return `${this.name}, ${this.age}`;
+      }
+    }
+    const man = new Person('boy', 1000)
+    console.log(man.toString());
+    */
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -58,10 +78,30 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
+  
+ 
+/*
 class Car {
-
+  constructor(model, milesPerGallon){
+  this.tank = 0;
+  this.odometer = 0;
+  this.milesPerGallon = milesPerGallon;
+  this.model = model;
+   }
+    drive(distance){
+      this.odometer += distance
+      this.tank -= distance/this.milesPerGallon; //need to implement miles per gallon
+       if (this.tank === 0){
+         return `I ran out of fuel at ${this.odometer} miles!`
+       };
+    
+     }
+     fill(gallons){
+      return this.tank += gallons;
+     }
+     
 }
-
+*/
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -75,8 +115,24 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(argument){
+    this.name = argument.name;
+    this.age = argument.age;
+    this.location = argument.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}`;
+  };
 }
+  
+
+const student1 = new Lambdasian ({
+name: 'Anatoliy',
+age: 34,
+location: 'Sarasota,FL',
+});
+
+console.log(student1.speak());
 
 /*
   TASK 4
@@ -92,9 +148,35 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian{
+  constructor(argument){
+    super(argument);
+    this.speciality = argument.speciality;
+    this.favLanguage = argument.favLanguage;
+    this.catchPhrase = argument.catchPhrase;
+  }
+   demo(subject){
+    return `Hello my name is ${this.subject}`;
+  }
+  grade(student, subject){
+    return '${this.student.name} receives a perfect score on ${this.subject}';
+  }
 }
+
+const newStudent = new Instructor ({
+  name: 'Jenny Penny',
+  age: 98,
+  location: 'Big Sur, CA',
+  specialty: "Quantum Physics",
+  favLanguage: "Trasierise",
+  catchPhrase: "That window pane is NOT thicker than my glasses!!!"
+
+});
+
+console.log(newStudent.demo('Equality'));
+console.log(newStudent.grade('Equality', 'Anatoliy'));
+
+
 
 /*
   TASK 5
@@ -140,7 +222,7 @@ class ProjectManager {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
-
+/*
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
@@ -154,3 +236,4 @@ if (typeof exports !== 'undefined') {
   if (Student) { module.exports.Student = Student }
   if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
 }
+*/
